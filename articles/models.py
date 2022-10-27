@@ -17,7 +17,7 @@ class Article(models.Model):
     
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name="comment_set") # comment_set은 없어도 기본값으로 설정되어있음
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name="comments")  # related_name default값은 comment_set
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
